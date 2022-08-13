@@ -95,7 +95,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\;$(SolutionDir)\ThirdParty\fmt-8.0.1\include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>Common/Logging.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,7 +111,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\;$(SolutionDir)\ThirdParty\fmt-8.0.1\include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>Common/Logging.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,7 +127,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\;$(SolutionDir)\ThirdParty\fmt-8.0.1\include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>Common/Logging.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,7 +143,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\;$(SolutionDir)\ThirdParty\fmt-8.0.1\include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>Common/Logging.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,11 +154,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\ThirdParty\fmt-8.0.1\src\format.cc" />
+    <ClCompile Include="Files\Common\Logging.cpp" />
     <ClCompile Include="Files\Core\InstructionDefinitions.cpp" />
     <ClCompile Include="Files\Cpu\VirtualCpu.cpp" />
     <ClCompile Include="Files\mainEntry.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Files\Common\Logging.h" />
     <ClInclude Include="Files\Common\Macros.h" />
     <ClInclude Include="Files\Core\InstructionDefinitions.hpp" />
     <ClInclude Include="Files\Core\Instructions.hpp" />

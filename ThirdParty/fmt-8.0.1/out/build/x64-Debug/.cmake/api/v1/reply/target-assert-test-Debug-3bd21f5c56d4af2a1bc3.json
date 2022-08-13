@@ -1,0 +1,183 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "bin/assert-test.exe"
+		},
+		{
+			"path" : "bin/assert-test.pdb"
+		}
+	],
+	"backtrace" : 3,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"add_fmt_executable",
+			"add_fmt_test",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"test/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 63,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 49,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 25,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 50,
+				"parent" : 1
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "FMT_LOCALE"
+				},
+				{
+					"backtrace" : 4,
+					"define" : "GTEST_HAS_STD_WSTRING=1"
+				},
+				{
+					"backtrace" : 4,
+					"define" : "_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING=1"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "E:/Project/git/Stockpile/ThirdParty/fmt-8.0.1/include"
+				},
+				{
+					"backtrace" : 4,
+					"isSystem" : true,
+					"path" : "E:/Project/git/Stockpile/ThirdParty/fmt-8.0.1/test/gtest/."
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					4
+				],
+				"standard" : "11"
+			},
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "test-main::@36f028580bb02cc8272a"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "fmt::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "gtest::@2a0dd4ab72c17d02331b"
+		}
+	],
+	"id" : "assert-test::@36f028580bb02cc8272a",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "test-main.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "..\\fmtd.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "gtest\\gtest.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "assert-test",
+	"nameOnDisk" : "assert-test.exe",
+	"paths" : 
+	{
+		"build" : "test",
+		"source" : "test"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "test/assert-test.cc",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

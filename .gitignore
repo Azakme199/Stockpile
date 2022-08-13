@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Solution specific 
+/Stockpile/Debug
+/bin/Win32/Debug
+/bin/Win32/Debug
+.vs

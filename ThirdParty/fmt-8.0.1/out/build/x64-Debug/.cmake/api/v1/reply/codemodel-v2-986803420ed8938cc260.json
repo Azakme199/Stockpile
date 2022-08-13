@@ -1,0 +1,288 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "doc",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "doc"
+				},
+				{
+					"build" : "test",
+					"childIndexes" : 
+					[
+						3
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						8,
+						9,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20
+					]
+				},
+				{
+					"build" : "test/gtest",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.1"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 0,
+					"source" : "test/gtest",
+					"targetIndexes" : 
+					[
+						10
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "FMT",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "args-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-args-test-Debug-f9860a5563f0b30893d4.json",
+					"name" : "args-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "assert-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-assert-test-Debug-3bd21f5c56d4af2a1bc3.json",
+					"name" : "assert-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "chrono-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-chrono-test-Debug-1288bdca65a3fd5fdf49.json",
+					"name" : "chrono-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "color-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-color-test-Debug-39b367095eb8f5e65591.json",
+					"name" : "color-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "compile-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-compile-test-Debug-d8d6de4e61d8e4d2e3a3.json",
+					"name" : "compile-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "core-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-core-test-Debug-339026146044b3f258d8.json",
+					"name" : "core-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "enforce-checks-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-enforce-checks-test-Debug-f69a1d82d0d2a851995c.json",
+					"name" : "enforce-checks-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fmt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fmt-Debug-8b203f19c69f4ba78cef.json",
+					"name" : "fmt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "format-impl-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-format-impl-test-Debug-07ff31758618d06fe69e.json",
+					"name" : "format-impl-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "format-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-format-test-Debug-868f9a2e3c7c7ce1f444.json",
+					"name" : "format-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest::@2a0dd4ab72c17d02331b",
+					"jsonFile" : "target-gtest-Debug-5f3153f190120d6dd64b.json",
+					"name" : "gtest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gtest-extra-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-gtest-extra-test-Debug-c2f8ca436e75019162b3.json",
+					"name" : "gtest-extra-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "os-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-os-test-Debug-607d84f5972b14f2808f.json",
+					"name" : "os-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ostream-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-ostream-test-Debug-08efdd19dc2bc78a6008.json",
+					"name" : "ostream-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "posix-mock-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-posix-mock-test-Debug-edca9d611ce61f9e0a13.json",
+					"name" : "posix-mock-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "printf-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-printf-test-Debug-1ee525b79d270108b463.json",
+					"name" : "printf-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ranges-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-ranges-test-Debug-f5e9b6b1e038cebdbcf4.json",
+					"name" : "ranges-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "scan-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-scan-test-Debug-53754158409ed0ca44ca.json",
+					"name" : "scan-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test-main::@36f028580bb02cc8272a",
+					"jsonFile" : "target-test-main-Debug-8f745a1a5b0ca7256a34.json",
+					"name" : "test-main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "unicode-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-unicode-test-Debug-cd263237fe63775034c4.json",
+					"name" : "unicode-test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "xchar-test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-xchar-test-Debug-73d720cb4125e3847345.json",
+					"name" : "xchar-test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/Project/git/Stockpile/ThirdParty/fmt-8.0.1/out/build/x64-Debug",
+		"source" : "E:/Project/git/Stockpile/ThirdParty/fmt-8.0.1"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}

@@ -1,0 +1,78 @@
+The system is: Windows - 10.0.19044 - AMD64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30141 for x64
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+CMakeCXXCompilerId.cpp
+Microsoft (R) Incremental Linker Version 14.29.30141.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCXXCompilerId.exe 
+CMakeCXXCompilerId.obj 
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+
+The CXX compiler identification is MSVC, found in "E:/Project/git/Stockpile/ThirdParty/fmt-8.0.1/out/build/x64-Debug/CMakeFiles/3.20.21032501-MSVC_2/CompilerIdCXX/CMakeCXXCompilerId.exe"
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: E:/Project/git/Stockpile/ThirdParty/fmt-8.0.1/out/build/x64-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_cee63 && [1/2] Building CXX object CMakeFiles\cmTC_cee63.dir\CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_cee63.exe
+
+
+
+Performing C++ SOURCE FILE Test SUPPORTS_USER_DEFINED_LITERALS succeeded with the following output:
+Change Dir: E:/Project/git/Stockpile/ThirdParty/fmt-8.0.1/out/build/x64-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_0fed3 && [1/2] Building CXX object CMakeFiles\cmTC_0fed3.dir\src.cxx.obj
+[2/2] Linking CXX executable cmTC_0fed3.exe
+
+
+Source file was:
+
+  void operator"" _udl(long double);
+  int main() {}
+Performing C++ SOURCE FILE Test FMT_HAS_VARIANT succeeded with the following output:
+Change Dir: E:/Project/git/Stockpile/ThirdParty/fmt-8.0.1/out/build/x64-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_7f762 && [1/2] Building CXX object CMakeFiles\cmTC_7f762.dir\src.cxx.obj
+cl : Command line warning D9002 : ignoring unknown option '-std=c++1z'
+The contents of <variant> are available only with C++17 or later.
+[2/2] Linking CXX executable cmTC_7f762.exe
+
+
+Source file was:
+
+  #include <variant>
+  int main() {}
+Determining if the _strtod_l exist passed with the following output:
+Change Dir: E:/Project/git/Stockpile/ThirdParty/fmt-8.0.1/out/build/x64-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_d6c22 && [1/2] Building CXX object CMakeFiles\cmTC_d6c22.dir\CheckSymbolExists.cxx.obj
+[2/2] Linking CXX executable cmTC_d6c22.exe
+
+
+File E:/Project/git/Stockpile/ThirdParty/fmt-8.0.1/out/build/x64-Debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _strtod_l
+  return ((int*)(&_strtod_l))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
