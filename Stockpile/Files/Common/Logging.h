@@ -102,6 +102,3 @@ extern DbgWindow* main_log;
 #define DEBUG_WARNING_FXN(message,...) (main_log->log_warning(__FUNCTION__ "(): "##message,__VA_ARGS__))
 #define DEBUG_ERROR(message,...) (main_log->log_error(##message,__VA_ARGS__))
 #define DEBUG_ERROR_FXN(message,...) (main_log->log_error(__FUNCTION__ "(): "##message,__VA_ARGS__))
-
-//@Lakshay ho gya FXN() use kro toh            FXN() : msg              karke print hoga
-//mai chala

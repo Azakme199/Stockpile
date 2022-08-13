@@ -1,12 +1,11 @@
 #pragma once
 
-//
 /*
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 //
 //
-//		This will contain list of instructions that can be used by the interpreter/compiler/debugger codes
+//		Contains list of instructions that can be used by the interpreter/compiler/debugger codes
 //		will also house an instruction table 
 //
 //
@@ -15,7 +14,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 */
 
-enum e_instruction_item_types
+enum e_instruction_item_types : quantum_t
 {
 	k_instruction_item_types_begin,
 

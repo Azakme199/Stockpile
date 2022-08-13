@@ -33,6 +33,6 @@
 
 # Solution specific 
 /Stockpile/Debug
-/bin/Win32/Debug
-/bin/Win32/Debug
+/Stockpile/x64/
+/bin/
 .vs
