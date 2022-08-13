@@ -16,6 +16,6 @@
 
 class c_instruction_item
 {
-	virtual e_instruction_item_types get_item_type() = 0;
-	virtual size_t get_item_size() = 0;
+	virtual e_instruction_item_types get_item_type() const = 0;
+	virtual size_t get_item_size() const = 0;
 };
