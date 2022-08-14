@@ -44,3 +44,6 @@ enum e_instruction_item_types : quantum_t
 	k_instruction_item_types_end,
 
 };
+
+
+#define MAX_INSTRUCTION_SET 1<<(sizeof(quantum_t)*8 -1) //last bit will be reserved for system interrupts
