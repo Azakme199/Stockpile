@@ -15,6 +15,7 @@
 
 constexpr auto MAX_VIRTUAL_CPU_REGISTERS = 4;
 constexpr auto MAX_VIRTUAL_CPU_STACK_LENGTH = 8;
+constexpr auto MAX_VIRTUAL_MEMORY_LENGTH = 8;
 constexpr auto MIN_VIRTUAL_CPU_VSP = 0;
 
 constexpr auto MAX_VIRTUAL_CPU_VSP = MAX_VIRTUAL_CPU_STACK_LENGTH - MIN_VIRTUAL_CPU_VSP - 1;
@@ -43,8 +44,8 @@ class c_virtual_cpu
 	// virtual stack for processor
 	quantum_t vstack[MAX_VIRTUAL_CPU_STACK_LENGTH];
 
-
-
+	// virtual memory for processor
+	quantum_t vmem[MAX_VIRTUAL_MEMORY_LENGTH];
 
 
 	void cpu_internals_break();
@@ -70,11 +71,28 @@ public:
 
 	c_virtual_cpu();
 
-	//const quantum_t get_register_by_id();
 
-	bool push_data(const quantum_t in);
-	bool push_data_internal();
-	const bool pop_data(quantum_t& out);
-	const bool pop_data_internal();
+
+	/*
+		Does a memory fetch and push into stack
+	*/
+	bool cpu_execute_push();
+	/*
+		Push data bus into stack
+	*/
+	bool cpu_push_data();
+	/*
+		Overrides data bus and push into stack
+	*/
+	bool cpu_push_data(const quantum_t in);	
+	/*
+		Overrides data bus with top of stack
+	*/
+	bool cpu_pop_data();
+	/*
+		Fetches top of stack into out
+	*/
+	bool cpu_pop_data(quantum_t& out);
+
 
 };

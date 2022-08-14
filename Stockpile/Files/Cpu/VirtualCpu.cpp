@@ -65,13 +65,13 @@ c_virtual_cpu::c_virtual_cpu()
 	memset(this->vregs, 0, MAX_VIRTUAL_CPU_REGISTERS *sizeof(quantum_t));
 }
 
-bool c_virtual_cpu::push_data(const quantum_t in)
+bool c_virtual_cpu::cpu_execute_push()
 {
-	this->vbus = in;
-	return this->push_data_internal();
+	this->vbus = this->vmem[this->vip + sizeof(quantum_t)]; //each instruction is of size quantum_t
+	return this->cpu_push_data();
 }
 
-bool c_virtual_cpu::push_data_internal()
+bool c_virtual_cpu::cpu_push_data()
 {
 	if (this->cpu_internals_stack_full())
 	{
@@ -83,16 +83,14 @@ bool c_virtual_cpu::push_data_internal()
 	return true;
 }
 
-const bool c_virtual_cpu::pop_data(quantum_t& out)
+bool c_virtual_cpu::cpu_push_data(const quantum_t in)
 {
-	if (!this->pop_data_internal())
-		return false;
+	this->vbus = in;
+	return this->cpu_push_data();
 	
-	out = this->vbus;
-	return true;
 }
 
-const bool c_virtual_cpu::pop_data_internal()
+bool c_virtual_cpu::cpu_pop_data()
 {
 	if (this->cpu_internals_stack_empty())
 	{
@@ -100,6 +98,16 @@ const bool c_virtual_cpu::pop_data_internal()
 		return false;
 	}
 
-	this->cpu_internals_pop_from_stack();
+	this->cpu_internals_pop_from_stack();	
 	return true;
 }
+
+ bool c_virtual_cpu::cpu_pop_data(quantum_t& out)
+{
+	 if (!this->cpu_pop_data())
+		 return false;
+
+	 out = this->vbus;
+	 return true;
+}
+
