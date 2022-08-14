@@ -88,6 +88,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <CopyLocalDebugSymbols>true</CopyLocalDebugSymbols>
+    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -98,6 +99,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\;$(SolutionDir)\ThirdParty\fmt-8.0.1\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>Common/Logging.h;Common/Macros.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <FloatingPointModel>Fast</FloatingPointModel>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -115,6 +117,8 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\;$(SolutionDir)\ThirdParty\fmt-8.0.1\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>Common/Logging.h;Common/Macros.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <FloatingPointModel>Fast</FloatingPointModel>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +136,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\;$(SolutionDir)\ThirdParty\fmt-8.0.1\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>Common/Logging.h;Common/Macros.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <FloatingPointModel>Fast</FloatingPointModel>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,6 +154,8 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\;$(SolutionDir)\ThirdParty\fmt-8.0.1\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>Common/Logging.h;Common/Macros.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <FloatingPointModel>Fast</FloatingPointModel>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
