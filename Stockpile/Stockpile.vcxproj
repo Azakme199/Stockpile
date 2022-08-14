@@ -169,6 +169,7 @@
     <ClCompile Include="Files\Common\Logging.cpp" />
     <ClCompile Include="Files\Core\InstructionDefinitions.cpp" />
     <ClCompile Include="Files\Cpu\VirtualCpu.cpp" />
+    <ClCompile Include="Files\Cpu\VirtualCpuInstructions.cpp" />
     <ClCompile Include="Files\mainEntry.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +178,7 @@
     <ClInclude Include="Files\Core\InstructionDefinitions.hpp" />
     <ClInclude Include="Files\Core\Instructions.hpp" />
     <ClInclude Include="Files\Cpu\VirtualCpu.hpp" />
+    <ClInclude Include="Files\Cpu\VirtualCpuInstructions.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

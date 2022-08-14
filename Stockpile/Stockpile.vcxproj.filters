@@ -30,6 +30,9 @@
     <ClCompile Include="..\ThirdParty\fmt-8.0.1\src\format.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Files\Cpu\VirtualCpuInstructions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Files\Core\InstructionDefinitions.hpp">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Files\Common\Logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Files\Cpu\VirtualCpuInstructions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

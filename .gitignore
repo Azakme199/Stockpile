@@ -32,6 +32,7 @@
 *.app
 
 # Solution specific 
+/Stockpile/Release
 /Stockpile/Debug
 /Stockpile/x64/
 /bin/
