@@ -36,6 +36,19 @@ DbgWindow::DbgWindow(const std::string& name) {
 	valid = true;
 	attachedToConsole = true;
 	writeToFile = false;
+
+
+	// Thanks to answer in stackoverflow . Fixes ANSI coloring not working sometimes
+	// https://stackoverflow.com/a/52608157
+
+	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	DWORD dwMode;
+	GetConsoleMode(hOutput, &dwMode);
+	//GetConsoleWindow
+	dwMode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+	if (!SetConsoleMode(hOutput, dwMode)) {
+		printf("SetConsoleMode failed.");
+	}
 }
 DbgWindow::~DbgWindow() {
 	valid = false;
