@@ -37,6 +37,16 @@ void c_virtual_cpu::cpu_internals_pop_from_stack()
 	this->vbus = this->vstack[this->vsp--];
 }
 
+void c_virtual_cpu::cpu_internals_peek_stack(size_t at)
+{
+	this->vbus = this->vstack[at];
+}
+
+void c_virtual_cpu::cpu_internals_peek_stack_top()
+{
+	this->vbus = this->vstack[this->vsp];
+}
+
 void c_virtual_cpu::cpu_internals_clear_stack()
 {
 	//	if we actually implement a base pointer approach
@@ -61,15 +71,10 @@ c_virtual_cpu::c_virtual_cpu()
 	//	tbh it doesnt matter even if zero them or not
 	//	since we are never doing any arbitrary read/write
 
-	memset(this->vstack, 0, MAX_VIRTUAL_CPU_STACK_LENGTH * sizeof(quantum_t));
-	memset(this->vregs, 0, MAX_VIRTUAL_CPU_REGISTERS *sizeof(quantum_t));
+	memset(this->vstack, 0, MAX_VIRTUAL_CPU_STACK_SIZE);
+	memset(this->vregs, 0, MAX_VIRTUAL_MEMORY_SIZE);
 }
 
-bool c_virtual_cpu::cpu_execute_push()
-{
-	this->vbus = this->vmem[this->vip + sizeof(quantum_t)]; //each instruction is of size quantum_t
-	return this->cpu_push_data();
-}
 
 bool c_virtual_cpu::cpu_push_data()
 {
@@ -87,7 +92,7 @@ bool c_virtual_cpu::cpu_push_data(const quantum_t in)
 {
 	this->vbus = in;
 	return this->cpu_push_data();
-	
+
 }
 
 bool c_virtual_cpu::cpu_pop_data()
@@ -98,16 +103,72 @@ bool c_virtual_cpu::cpu_pop_data()
 		return false;
 	}
 
-	this->cpu_internals_pop_from_stack();	
+	this->cpu_internals_pop_from_stack();
 	return true;
 }
 
- bool c_virtual_cpu::cpu_pop_data(quantum_t& out)
+bool c_virtual_cpu::cpu_pop_data(quantum_t& out)
 {
-	 if (!this->cpu_pop_data())
-		 return false;
+	if (!this->cpu_pop_data())
+		return false;
 
-	 out = this->vbus;
-	 return true;
+	out = this->vbus;
+	return true;
+}
+
+void c_virtual_cpu::cpu_memory_write(quantum_t* memory, const size_t sz)
+{
+	if (sz > MAX_VIRTUAL_MEMORY_SIZE)
+	{
+		memcpy(this->vmem, memory, MAX_VIRTUAL_MEMORY_SIZE);
+		DEBUG_WARNING_FXN("write size exceeded MAX_VIRTUAL_MEMORY_SIZE");
+	}
+	memcpy(this->vmem, memory, sz);
+}
+
+void c_virtual_cpu::cpu_memory_write_quantum(const size_t at, const quantum_t in)
+{
+	if (!IN_RANGE(at, -1, MAX_VIRTUAL_MEMORY_LENGTH))
+	{
+		DEBUG_WARNING_FXN("out of range detected ..skipping");
+		return;
+	}
+
+	this->vmem[at] = in;
+
+}
+
+const quantum_t* c_virtual_cpu::cpu_memory_read()
+{
+	return static_cast<const quantum_t*>(this->vmem);
+}
+
+const quantum_t c_virtual_cpu::cpu_memory_read_quantum(const size_t at)
+{
+	if (IN_RANGE(at, -1, MAX_VIRTUAL_MEMORY_LENGTH))
+		return static_cast<const quantum_t>(this->vmem[at]);
+
+	DEBUG_WARNING_FXN("out of range detected");
+	return static_cast<const quantum_t>(quantum_t());
+}
+
+const quantum_t c_virtual_cpu::cpu_memory_read_vip()
+{
+	return static_cast<const quantum_t>(this->vip);
+}
+
+const quantum_t c_virtual_cpu::cpu_memory_read_vsp()
+{
+	return static_cast<const quantum_t>(this->vsp);
+}
+
+const quantum_t c_virtual_cpu::cpu_memory_read_vbus()
+{
+	return static_cast<const quantum_t>(this->vbus);
+}
+
+void c_virtual_cpu::cpu_memory_write_vbus(const quantum_t in)
+{
+	this->vbus = in;
 }
 
