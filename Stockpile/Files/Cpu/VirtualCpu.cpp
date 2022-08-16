@@ -37,15 +37,17 @@ void c_virtual_cpu::cpu_internals_pop_from_stack()
 	this->vbus = this->vstack[this->vsp--];
 }
 
+void c_virtual_cpu::cpu_internals_peek_stack()
+{
+	this->vbus = this->vstack[this->vsp];
+}
+
 void c_virtual_cpu::cpu_internals_peek_stack(size_t at)
 {
 	this->vbus = this->vstack[at];
 }
 
-void c_virtual_cpu::cpu_internals_peek_stack_top()
-{
-	this->vbus = this->vstack[this->vsp];
-}
+
 
 void c_virtual_cpu::cpu_internals_clear_stack()
 {
@@ -71,8 +73,8 @@ c_virtual_cpu::c_virtual_cpu()
 	//	tbh it doesnt matter even if zero them or not
 	//	since we are never doing any arbitrary read/write
 
-	memset(this->vstack, 0, MAX_VIRTUAL_CPU_STACK_SIZE);
-	memset(this->vregs, 0, MAX_VIRTUAL_MEMORY_SIZE);
+	memset(&this->vstack, 0, MAX_VIRTUAL_CPU_STACK_SIZE);
+	memset(&this->vmem, 0, MAX_VIRTUAL_MEMORY_SIZE);
 }
 
 
@@ -122,6 +124,7 @@ void c_virtual_cpu::cpu_memory_write(quantum_t* memory, const size_t sz)
 	{
 		memcpy(this->vmem, memory, MAX_VIRTUAL_MEMORY_SIZE);
 		DEBUG_WARNING_FXN("write size exceeded MAX_VIRTUAL_MEMORY_SIZE");
+		return;
 	}
 	memcpy(this->vmem, memory, sz);
 }

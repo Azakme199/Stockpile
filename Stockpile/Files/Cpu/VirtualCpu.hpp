@@ -18,9 +18,9 @@ constexpr auto MAX_VIRTUAL_CPU_STACK_LENGTH = 8;
 constexpr auto MAX_VIRTUAL_CPU_STACK_SIZE = MAX_VIRTUAL_CPU_STACK_LENGTH * sizeof(quantum_t);;
 constexpr auto MAX_VIRTUAL_MEMORY_LENGTH = 1 << 6;
 constexpr auto MAX_VIRTUAL_MEMORY_SIZE = MAX_VIRTUAL_MEMORY_LENGTH * sizeof(quantum_t);
-constexpr auto MIN_VIRTUAL_CPU_VSP = 0;
+constexpr auto MIN_VIRTUAL_CPU_VSP = -1;
 
-constexpr auto MAX_VIRTUAL_CPU_VSP = MAX_VIRTUAL_CPU_STACK_LENGTH - MIN_VIRTUAL_CPU_VSP - 1;
+constexpr auto MAX_VIRTUAL_CPU_VSP = MAX_VIRTUAL_CPU_STACK_LENGTH + MIN_VIRTUAL_CPU_VSP;
 
 
 #define REGISTER_VAX 0
@@ -57,8 +57,8 @@ class c_virtual_cpu
 	bool cpu_internals_stack_empty();
 	void cpu_internals_push_into_stack();
 	void cpu_internals_pop_from_stack();
-	void cpu_internals_peek_stack(size_t);
-	void cpu_internals_peek_stack_top();
+	void cpu_internals_peek_stack();
+	void cpu_internals_peek_stack(size_t at);
 	void cpu_internals_clear_stack();
 
 
