@@ -18,9 +18,9 @@ constexpr auto MAX_VIRTUAL_CPU_STACK_LENGTH = 8;
 constexpr auto MAX_VIRTUAL_CPU_STACK_SIZE = MAX_VIRTUAL_CPU_STACK_LENGTH * sizeof(quantum_t);;
 constexpr auto MAX_VIRTUAL_MEMORY_LENGTH = 1 << 6;
 constexpr auto MAX_VIRTUAL_MEMORY_SIZE = MAX_VIRTUAL_MEMORY_LENGTH * sizeof(quantum_t);
-constexpr auto MIN_VIRTUAL_CPU_VSP = -1;
+constexpr quantum_t MIN_VIRTUAL_CPU_VSP = -1;
 
-constexpr auto MAX_VIRTUAL_CPU_VSP = MAX_VIRTUAL_CPU_STACK_LENGTH + MIN_VIRTUAL_CPU_VSP;
+constexpr quantum_t MAX_VIRTUAL_CPU_VSP = MAX_VIRTUAL_CPU_STACK_LENGTH + MIN_VIRTUAL_CPU_VSP;
 
 
 #define REGISTER_VAX 0
