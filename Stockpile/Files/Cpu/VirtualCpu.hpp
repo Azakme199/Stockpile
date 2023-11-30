@@ -40,6 +40,9 @@ class c_virtual_cpu
 	// virtual stack pointer
 	quantum_t vsp;
 
+	// virtual data pointer (points to unused memory)
+	quantum_t vdptr;
+
 	// virtual data bus for connecting system resources
 	quantum_t vbus;
 
@@ -101,6 +104,10 @@ public:
 		Override cpu virtual memory at offset
 	*/
 	void cpu_memory_write_quantum(const size_t at, const quantum_t in);
+	/*
+		Override cpu virtual memory at offset in blocks
+	*/
+	void cpu_memory_write_block(quantum_t* memory, const size_t at ,const  size_t sz);
 	/*
 		Fetch a pointer to cpu virtual memory
 	*/

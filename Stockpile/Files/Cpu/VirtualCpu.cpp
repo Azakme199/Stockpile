@@ -69,6 +69,7 @@ c_virtual_cpu::c_virtual_cpu()
 	this->vip = 0;
 	this->vsp = MIN_VIRTUAL_CPU_VSP;
 	this->vbus = 0;
+	this->vdptr = 0;
 
 	//	tbh it doesnt matter even if zero them or not
 	//	since we are never doing any arbitrary read/write
@@ -123,10 +124,11 @@ void c_virtual_cpu::cpu_memory_write(quantum_t* memory, const size_t sz)
 	if (sz > MAX_VIRTUAL_MEMORY_SIZE)
 	{
 		memcpy(this->vmem, memory, MAX_VIRTUAL_MEMORY_SIZE);
-		DEBUG_WARNING_FXN("write size exceeded MAX_VIRTUAL_MEMORY_SIZE");
+		DEBUG_WARNING_FXN("write size exceeded MAX_VIRTUAL_MEMORY_SIZE ..partially written");
 		return;
 	}
 	memcpy(this->vmem, memory, sz);
+	this->vdptr =sz;
 }
 
 void c_virtual_cpu::cpu_memory_write_quantum(const size_t at, const quantum_t in)
@@ -139,6 +141,23 @@ void c_virtual_cpu::cpu_memory_write_quantum(const size_t at, const quantum_t in
 
 	this->vmem[at] = in;
 
+}
+
+void c_virtual_cpu::cpu_memory_write_block(quantum_t* memory, const size_t at, const  size_t sz)
+{
+	if(!IN_RANGE(at, -1, MAX_VIRTUAL_MEMORY_LENGTH))
+	{
+		DEBUG_WARNING_FXN("out of range detected ..skipping");
+		return;
+	}
+	if (at + sz > MAX_VIRTUAL_MEMORY_SIZE)
+	{
+		memcpy(this->vmem + at, memory, MAX_VIRTUAL_MEMORY_SIZE-at);
+		DEBUG_WARNING_FXN("write size exceeded MAX_VIRTUAL_MEMORY_SIZE ..partially written");
+		return;
+	}
+	memcpy(this->vmem + at, memory, sz);
+	this->vdptr = MAX(at+sz,this->vdptr);
 }
 
 const quantum_t* c_virtual_cpu::cpu_memory_read()
