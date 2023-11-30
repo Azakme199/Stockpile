@@ -25,7 +25,7 @@ public:
 };
 
 
-class c_virtual_cpu_instruction_push : c_virtual_cpu_instruction
+class c_virtual_cpu_instruction_push : public c_virtual_cpu_instruction
 {
 
 public:
@@ -34,7 +34,7 @@ public:
 };
 
 
-class c_virtual_cpu_instruction_pop : c_virtual_cpu_instruction
+class c_virtual_cpu_instruction_pop : public c_virtual_cpu_instruction
 {
 
 public:
@@ -43,7 +43,7 @@ public:
 };
 
 
-class c_virtual_cpu_instruction_add : c_virtual_cpu_instruction
+class c_virtual_cpu_instruction_add : public c_virtual_cpu_instruction
 {
 
 public:
@@ -52,7 +52,7 @@ public:
 };
 
 
-class c_virtual_cpu_instruction_subtract : c_virtual_cpu_instruction
+class c_virtual_cpu_instruction_subtract : public c_virtual_cpu_instruction
 {
 
 public:
@@ -61,7 +61,7 @@ public:
 };
 
 
-class c_virtual_cpu_instruction_multiply : c_virtual_cpu_instruction
+class c_virtual_cpu_instruction_multiply : public c_virtual_cpu_instruction
 {
 
 public:
@@ -70,7 +70,7 @@ public:
 };
 
 
-class c_virtual_cpu_instruction_divide : c_virtual_cpu_instruction
+class c_virtual_cpu_instruction_divide : public c_virtual_cpu_instruction
 {
 
 public:
