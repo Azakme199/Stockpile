@@ -50,3 +50,30 @@ public:
 	//	returns success or failure
 	bool execute(c_virtual_cpu* cpu) override;
 };
+
+
+class c_virtual_cpu_instruction_subtract : c_virtual_cpu_instruction
+{
+
+public:
+	//	returns success or failure
+	bool execute(c_virtual_cpu* cpu) override;
+};
+
+
+class c_virtual_cpu_instruction_multiply : c_virtual_cpu_instruction
+{
+
+public:
+	//	returns success or failure
+	bool execute(c_virtual_cpu* cpu) override;
+};
+
+
+class c_virtual_cpu_instruction_divide : c_virtual_cpu_instruction
+{
+
+public:
+	//	returns success or failure
+	bool execute(c_virtual_cpu* cpu) override;
+};
