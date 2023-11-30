@@ -40,8 +40,6 @@ class c_virtual_cpu
 	// virtual stack pointer
 	quantum_t vsp;
 
-	// virtual data pointer (points to unused memory)
-	quantum_t vdptr;
 
 	// virtual data bus for connecting system resources
 	quantum_t vbus;

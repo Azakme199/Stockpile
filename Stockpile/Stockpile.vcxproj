@@ -154,7 +154,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\Stockpile\Files\;$(SolutionDir)\ThirdParty\fmt-8.0.1\include</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>Common/Logging.h;Common/Macros.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <FloatingPointModel>Fast</FloatingPointModel>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
     </ClCompile>
     <Link>

@@ -69,7 +69,6 @@ c_virtual_cpu::c_virtual_cpu()
 	this->vip = 0;
 	this->vsp = MIN_VIRTUAL_CPU_VSP;
 	this->vbus = 0;
-	this->vdptr = 0;
 
 	//	tbh it doesnt matter even if zero them or not
 	//	since we are never doing any arbitrary read/write
@@ -128,7 +127,6 @@ void c_virtual_cpu::cpu_memory_write(quantum_t* memory, const size_t sz)
 		return;
 	}
 	memcpy(this->vmem, memory, sz);
-	this->vdptr =sz;
 }
 
 void c_virtual_cpu::cpu_memory_write_quantum(const size_t at, const quantum_t in)
@@ -157,7 +155,6 @@ void c_virtual_cpu::cpu_memory_write_block(quantum_t* memory, const size_t at, c
 		return;
 	}
 	memcpy(this->vmem + at, memory, sz);
-	this->vdptr = MAX(at+sz,this->vdptr);
 }
 
 const quantum_t* c_virtual_cpu::cpu_memory_read()
