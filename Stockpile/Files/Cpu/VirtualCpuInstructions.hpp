@@ -43,6 +43,15 @@ public:
 };
 
 
+class c_virtual_cpu_instruction_nop : public c_virtual_cpu_instruction
+{
+
+public:
+	//	returns success or failure
+	bool execute(c_virtual_cpu* cpu) override;
+};
+
+
 class c_virtual_cpu_instruction_add : public c_virtual_cpu_instruction
 {
 

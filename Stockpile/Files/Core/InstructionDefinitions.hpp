@@ -90,6 +90,33 @@ public:
 /*
 ///////////////////////////
 //
+//	perform no operation
+//
+///////////////////////////
+*/
+class c_instruction_item_nop :public c_instruction_item
+{
+public:
+	// type of instruction
+	e_instruction_item_types get_item_type() const override;
+
+
+	//	size in bytes current instruction takes
+	quantum_t get_item_size() const override;
+
+
+	//	no of operands current instruction takes
+	quantum_t get_item_operands_count() const override;
+};
+
+
+
+
+
+
+/*
+///////////////////////////
+//
 //	add two integers
 //
 ///////////////////////////

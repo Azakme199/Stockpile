@@ -14,6 +14,12 @@ bool c_virtual_cpu_instruction_pop::execute(c_virtual_cpu* cpu)
 }
 
 
+bool c_virtual_cpu_instruction_nop::execute(c_virtual_cpu* cpu)
+{
+	return true;
+}
+
+
 bool c_virtual_cpu_instruction_add::execute(c_virtual_cpu* cpu)
 {
 	if (cpu->cpu_pop_data(cpu->vregs[REGISTER_VAX])

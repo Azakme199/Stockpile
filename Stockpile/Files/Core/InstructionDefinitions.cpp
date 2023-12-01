@@ -40,6 +40,26 @@ quantum_t c_instruction_item_pop::get_item_operands_count() const
 
 
 
+
+//	class c_instruction_item_nop
+////////////////////////////////////////////////////////////////////////////////////////
+
+e_instruction_item_types c_instruction_item_nop::get_item_type() const
+{
+	return _instruction_item_type_nop;
+}
+quantum_t c_instruction_item_nop::get_item_size() const
+{
+	return sizeof(quantum_t) * get_item_operands_count() + sizeof(quantum_t);
+}
+quantum_t c_instruction_item_nop::get_item_operands_count() const
+{
+	return 0;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 //	class c_instruction_item_add
 ////////////////////////////////////////////////////////////////////////////////////////
 
