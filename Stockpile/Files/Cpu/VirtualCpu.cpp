@@ -49,7 +49,61 @@ void c_virtual_cpu::cpu_internals_peek_stack(size_t at)
 	this->vbus = this->vstack[at];
 }
 
+c_instruction_item* cpu_instruction_fetch(e_instruction_item_types type)
+{
+	static c_instruction_item_push psh;
+	static c_instruction_item_pop pop;
+	static c_instruction_item_add add;
+	static c_instruction_item_subtract sub;
+	static c_instruction_item_multiply mul;
+	static c_instruction_item_divide div;
+	static c_instruction_item_nop nop;
+	static c_instruction_item_terminate ext;
 
+	std::unordered_map<quantum_t, c_instruction_item*> mapp =
+	{
+		{_instruction_item_type_push, &psh},
+		{_instruction_item_type_pop, &pop},
+		{_instruction_item_type_add, &add},
+		{_instruction_item_type_subtract, &sub},
+		{_instruction_item_type_multiply, &mul},
+		{_instruction_item_type_divide, &div},
+		{_instruction_item_type_nop, &nop},
+		{_instruction_item_type_terminate, &ext},
+	};
+	if (mapp.find(type) != mapp.end())
+		return mapp[type];
+
+	return &nop;
+}
+
+c_virtual_cpu_instruction* cpu_instruction_decode(e_instruction_item_types type)
+{
+	static c_virtual_cpu_instruction_push psh;
+	static c_virtual_cpu_instruction_pop pop;
+	static c_virtual_cpu_instruction_add add;
+	static c_virtual_cpu_instruction_subtract sub;
+	static c_virtual_cpu_instruction_multiply mul;
+	static c_virtual_cpu_instruction_divide div;
+	static c_virtual_cpu_instruction_nop nop;
+	static c_virtual_cpu_instruction_terminate ext;
+
+	std::unordered_map<quantum_t, c_virtual_cpu_instruction*> mapp =
+	{
+		{_instruction_item_type_push, &psh},
+		{_instruction_item_type_pop, &pop},
+		{_instruction_item_type_add, &add},
+		{_instruction_item_type_subtract, &sub},
+		{_instruction_item_type_multiply, &mul},
+		{_instruction_item_type_divide, &div},
+		{_instruction_item_type_nop, &nop},
+		{_instruction_item_type_terminate, &ext},
+	};
+	if (mapp.find(type) != mapp.end())
+		return mapp[type];
+
+	return &nop;
+}
 
 void c_virtual_cpu::cpu_internals_clear_stack()
 {
@@ -199,29 +253,20 @@ void c_virtual_cpu::cpu_memory_stop()
 	this->cpu_internals_break();
 }
 
-void c_virtual_cpu::cpu_memory_run(const quantum_t* program)
+void c_virtual_cpu::cpu_memory_run()
 {
-	
-}
-
-c_virtual_cpu_instruction* cpu_instruction_decode(e_instruction_item_types type)
-{
-	static c_virtual_cpu_instruction_add add;
-	static c_virtual_cpu_instruction_subtract sub;
-	static c_virtual_cpu_instruction_multiply mul;
-	static c_virtual_cpu_instruction_divide div;
-	static c_virtual_cpu_instruction_nop nop;
-
-	std::unordered_map<quantum_t, c_virtual_cpu_instruction*> mapp =
+	this->cpu_internals_continue();
+	while(!this->halted)
 	{
-		{_instruction_item_type_add, &add},
-		{_instruction_item_type_subtract, &sub},
-		{_instruction_item_type_multiply, &mul},
-		{_instruction_item_type_divide, &div},
-		{_instruction_item_type_nop, &nop},
-	};
-	if (mapp.find(type) != mapp.end())
-		return mapp[type];
-
-	return &nop;
+		quantum_t byte_code = this->cpu_memory_read_quantum(this->vip);
+		e_instruction_item_types insn = static_cast<e_instruction_item_types>(byte_code);
+		c_virtual_cpu_instruction* decoded_insn = cpu_instruction_decode(insn);
+		c_instruction_item* insn_definition = cpu_instruction_fetch(insn);
+		
+		// run the instruction
+		decoded_insn->execute(this);
+		// move the program ahead
+		this->vip += insn_definition->get_item_size();
+	}
 }
+

@@ -135,8 +135,8 @@ public:
 	*/
 	void cpu_memory_stop();
 	/*
-		Process virtual cpu bytecodes
+		Process virtual cpu bytecodes in memory
 	*/
-	void cpu_memory_run(const quantum_t* program);
+	void cpu_memory_run();
 
 };

@@ -33,6 +33,9 @@
     <ClCompile Include="Files\Cpu\VirtualCpuInstructions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Files\Examples\Postfix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Files\Core\InstructionDefinitions.hpp">

@@ -170,6 +170,7 @@
     <ClCompile Include="Files\Core\InstructionDefinitions.cpp" />
     <ClCompile Include="Files\Cpu\VirtualCpu.cpp" />
     <ClCompile Include="Files\Cpu\VirtualCpuInstructions.cpp" />
+    <ClCompile Include="Files\Examples\Postfix.cpp" />
     <ClCompile Include="Files\mainEntry.cpp" />
   </ItemGroup>
   <ItemGroup>
