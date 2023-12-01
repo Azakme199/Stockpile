@@ -70,3 +70,10 @@ bool c_virtual_cpu_instruction_divide::execute(c_virtual_cpu* cpu)
 	}
 	return false;
 }
+
+
+bool c_virtual_cpu_instruction_terminate::execute(c_virtual_cpu* cpu)
+{	
+	cpu->cpu_memory_stop();
+	return true;
+}

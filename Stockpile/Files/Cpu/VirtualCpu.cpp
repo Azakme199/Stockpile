@@ -1,4 +1,6 @@
+#include <unordered_map>
 #include "VirtualCpu.hpp"
+#include "VirtualCpuInstructions.hpp"
 
 
 /*
@@ -191,3 +193,35 @@ void c_virtual_cpu::cpu_memory_write_vbus(const quantum_t in)
 	this->vbus = in;
 }
 
+void c_virtual_cpu::cpu_memory_stop()
+{
+	DEBUG_ERROR_FXN("stopping execution..");
+	this->cpu_internals_break();
+}
+
+void c_virtual_cpu::cpu_memory_run(const quantum_t* program)
+{
+	
+}
+
+c_virtual_cpu_instruction* cpu_instruction_decode(e_instruction_item_types type)
+{
+	static c_virtual_cpu_instruction_add add;
+	static c_virtual_cpu_instruction_subtract sub;
+	static c_virtual_cpu_instruction_multiply mul;
+	static c_virtual_cpu_instruction_divide div;
+	static c_virtual_cpu_instruction_nop nop;
+
+	std::unordered_map<quantum_t, c_virtual_cpu_instruction*> mapp =
+	{
+		{_instruction_item_type_add, &add},
+		{_instruction_item_type_subtract, &sub},
+		{_instruction_item_type_multiply, &mul},
+		{_instruction_item_type_divide, &div},
+		{_instruction_item_type_nop, &nop},
+	};
+	if (mapp.find(type) != mapp.end())
+		return mapp[type];
+
+	return &nop;
+}

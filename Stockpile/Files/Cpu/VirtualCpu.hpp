@@ -130,5 +130,13 @@ public:
 		Override cpu virtual data bus
 	*/
 	void cpu_memory_write_vbus(const quantum_t in);
+	/*
+		Stop processing virtual cpu bytecodes
+	*/
+	void cpu_memory_stop();
+	/*
+		Process virtual cpu bytecodes
+	*/
+	void cpu_memory_run(const quantum_t* program);
 
 };
