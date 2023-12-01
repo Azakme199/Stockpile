@@ -73,7 +73,7 @@ quantum_t c_instruction_item_add::get_item_size() const
 }
 quantum_t c_instruction_item_add::get_item_operands_count() const
 {
-	return 2;
+	return 0;
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -91,7 +91,7 @@ quantum_t c_instruction_item_subtract::get_item_size() const
 }
 quantum_t c_instruction_item_subtract::get_item_operands_count() const
 {
-	return 2;
+	return 0;
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -109,7 +109,7 @@ quantum_t c_instruction_item_multiply::get_item_size() const
 }
 quantum_t c_instruction_item_multiply::get_item_operands_count() const
 {
-	return 2;
+	return 0;
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -127,7 +127,7 @@ quantum_t c_instruction_item_divide::get_item_size() const
 }
 quantum_t c_instruction_item_divide::get_item_operands_count() const
 {
-	return 2;
+	return 0;
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 
